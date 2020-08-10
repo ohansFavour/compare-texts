@@ -11,18 +11,52 @@ export const types = {
   LOGOUT: 'LOGOUT',
 };
 
+
+
+type TCurrentUser = {
+  success: boolean;
+  message: string;
+  token: string;
+  username: string;
+};
+
+export type TResult = {
+  first_student: string;
+  second_student: string;
+  date: string;
+  second_file: string;
+  result: string;
+};
+export type THistoryResult = {
+  success: boolean;
+  message: string;
+  result: TResult[];
+};
+
+export type TCompareResult = {
+  success: boolean;
+  message: string;
+  result: string | null;
+};
+
+export type TInitialState = {
+  isLoadingUser: boolean;
+  currentUser: TCurrentUser | null;
+  isComparing: boolean;
+  isFetchingHistory: boolean;
+  historyResult: TResult[] | null;
+  result: null;
+};
+
+
 export interface IAction {
   type: string;
-  payload: any;
+  payload?: any;
 }
 export interface ICurrentUser {
   message: string;
   success: boolean;
   token: string;
-}
-export interface IState {
-  currentUser: any | null;
-  isLoadingUser: boolean;
 }
 
 export type TProviderProps = {
@@ -40,10 +74,5 @@ export interface IActionLogout {
   dispatch: any;
 }
 
-
-export interface IContextValue {
-  state: IState;
-  dispatch: any;
-}
 
 

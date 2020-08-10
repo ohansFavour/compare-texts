@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 // styles
 import './SignIn.scss';
 
@@ -10,7 +10,8 @@ import { StoreContext } from '../../store/Store';
 import { authenticateAction } from '../../store/Actions';
 import Spinner from '../Spinner/Spinner';
 
-const SignIn: React.FC<any> = (props): JSX.Element => {
+const SignIn = ({ history }: RouteComponentProps): JSX.Element => {
+  // State
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [shouldRemember, setShouldRemember] = useState<boolean>(false);
@@ -22,11 +23,12 @@ const SignIn: React.FC<any> = (props): JSX.Element => {
     dispatch,
   } = useContext(StoreContext);
 
-  const clearState = () => {
+  const clearState = (): void => {
     setUsername('');
     setPassword('');
   };
-  const handleFormSubmit = async (event: any) => {
+
+  const handleFormSubmit = (event: React.FormEvent): void => {
     // prevent default action
     event.preventDefault();
 
@@ -37,18 +39,20 @@ const SignIn: React.FC<any> = (props): JSX.Element => {
       remember: shouldRemember,
       dispatch,
     };
+
     // clear the state
     clearState();
 
     // call action
-    await authenticateAction(actionData);
+    authenticateAction(actionData);
   };
 
+  // move to compare page upon successful signin
   useEffect(() => {
     if (currentUser) {
-      props.history.push('/compare');
+      history.push('/compare');
     }
-  }, [currentUser, props.history]);
+  }, [currentUser, history]);
 
   return (
     <>
@@ -57,10 +61,7 @@ const SignIn: React.FC<any> = (props): JSX.Element => {
           <Spinner />
         </div>
       ) : (
-        <form
-          className="signIn"
-          onSubmit={handleFormSubmit}
-        >
+        <form className="signIn" onSubmit={handleFormSubmit}>
           <label htmlFor="username">Username</label>
           <input
             type="name"

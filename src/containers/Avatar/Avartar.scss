@@ -32,8 +32,17 @@ img {
   }
 }
  .avatar--desktop {
-  position: absolute !important;
+  position: absolute;
   right: 0;
   top: 0;
   padding: 2rem;
+}
+@media screen and (max-width:1023px){
+  .avatar--desktop {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2rem;
+    display: none;
+  }
 }

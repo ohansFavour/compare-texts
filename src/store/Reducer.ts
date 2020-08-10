@@ -1,6 +1,6 @@
-import { IAction, types } from './Types';
+import { IAction, types, TInitialState } from './Types';
 
-const reducer = (state: any, action: IAction) => {
+const reducer = (state: TInitialState, action: IAction) => {
   switch (action.type) {
     case types.USER_ASYNC_START:
       return { ...state, isLoadingUser: true };

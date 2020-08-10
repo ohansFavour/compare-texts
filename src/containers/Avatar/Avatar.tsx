@@ -13,11 +13,10 @@ const Avatar = (props: any) => {
   const {
     state: { currentUser },
   } = useContext(StoreContext);
-
   return (
     <div
       className={` avatar ${
-        props.mobile ? 'avatar--mobile' : 'avatar--desktop'
+        props.mobile ?  'avatar--mobile':'avatar--desktop'
       }`}
     >
       <img alt="avatar" src={Profile} />

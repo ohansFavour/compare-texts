@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 // component
 import Upload from '../../components/Upload/Upload';
@@ -14,7 +14,10 @@ import { historyAction, compareAction } from '../../store/Actions';
 import { StoreContext } from '../../store/Store';
 import Spinner from '../../components/Spinner/Spinner';
 
-const History = (props: any) => {
+// Types
+import { TResult } from '../../store/Types';
+
+const History = ({ history }: RouteComponentProps) => {
   const [tab, setTab] = useState(1);
   const [file, setFile] = useState(null);
   const [name, setName] = useState('');
@@ -42,13 +45,13 @@ const History = (props: any) => {
       dispatch,
       secondName: result.second_student,
       secondFile: result.second_file,
-      history: props.history,
+      history,
     });
   };
 
   return (
     <div className="history">
-      {isFetchingHistory | isComparing? (
+      {isFetchingHistory || isComparing ? (
         <Spinner />
       ) : (
         <>
@@ -68,26 +71,28 @@ const History = (props: any) => {
             <div className="history__result">
               <h2>Previous Comparisons for Tunde</h2>
               <div className="history__items">
-                {historyResult.map((result: any, index: number) => (
-                  <div className="history__item" key={index}>
-                    <h3>
-                      {result.first_student} vs {result.second_student}
-                    </h3>
-                    <span>
-                      <strong>Date:</strong> {result.date}
-                    </span>
-                    <span>
-                      <strong>Result:</strong> {result.result}
-                    </span>
-                    <button
-                      onClick={() => {
-                        handleReRun(result);
-                      }}
-                    >
-                      Re-run
-                    </button>
-                  </div>
-                ))}
+                {historyResult.map(
+                  (result: TResult, index: number): JSX.Element => (
+                    <div className="history__item" key={index}>
+                      <h3>
+                        {result.first_student} vs {result.second_student}
+                      </h3>
+                      <span>
+                        <strong>Date:</strong> {result.date}
+                      </span>
+                      <span>
+                        <strong>Result:</strong> {result.result}
+                      </span>
+                      <button
+                        onClick={() => {
+                          handleReRun(result);
+                        }}
+                      >
+                        Re-run
+                      </button>
+                    </div>
+                  )
+                )}
               </div>
             </div>
           )}

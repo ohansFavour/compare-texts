@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter} from 'react-router-dom';
 
 // styles
 import './Menu.scss';
@@ -7,7 +7,6 @@ import './Menu.scss';
 // images
 import Compare from '../../assets/images/compare.svg';
 import History from '../../assets/images/history.svg';
-import Help from '../../assets/images/help.svg';
 import Logout from '../../assets/images/logout.svg';
 
 // context
@@ -46,14 +45,6 @@ const Menu = (props: any): JSX.Element => {
         >
           <img src={History} alt="history" />
           History
-        </Link>
-        <Link
-          to="/help"
-          className="nav__item"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <img src={Help} alt="help" />
-          Help
         </Link>
       </div>
       <div className="nav__footer" onClick={handleLogout}>

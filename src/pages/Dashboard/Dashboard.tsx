@@ -27,7 +27,7 @@ const Dashboard = () => {
         <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
         <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
         <SideBar />
-        <Avatar />
+        <Avatar/>
       </div>
     </div>
   );

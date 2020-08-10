@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+import { RouteComponentProps,withRouter } from 'react-router-dom';
 
 // styles
 import './Compare.scss';
@@ -14,8 +14,7 @@ import { StoreContext } from '../../store/Store';
 // Action
 import { compareAction } from '../../store/Actions';
 
-
-const Compare = (props: any) => {
+const Compare = ({ history }: RouteComponentProps) => {
   // state
   const [firstFile, setFirstFile] = useState();
   const [secondFile, setSecondFile] = useState();
@@ -29,9 +28,8 @@ const Compare = (props: any) => {
   } = useContext(StoreContext);
 
   const empty = !(firstFile && secondFile && firstName && secondName);
-  const { history } = props;
-
-  const handleCompare = (event: any) => {
+ 
+  const handleCompare = (event: React.FormEvent) => {
     compareAction({
       firstName,
       firstFile,

@@ -10,7 +10,6 @@ import {StoreContext} from "../../store/Store";
 // images
 import Compare from '../../assets/images/compare.svg';
 import History from '../../assets/images/history.svg';
-import Help from '../../assets/images/help.svg';
 import Logout from '../../assets/images/logout.svg';
 
 // actions
@@ -39,10 +38,7 @@ const SideBar = (props: any) => {
           <img src={History} alt="history" />
           History
         </Link>
-        <Link to="/help" className="sidebar__item">
-          <img src={Help} alt="help" />
-          Help
-        </Link>
+        
       </div>
       <div className="sidebar__footer " onClick={handleLogout}>
         <img src={Logout} alt="logout" />
