@@ -1,0 +1,33 @@
+.homepage {
+  background-image: url('../../assets/images/login-student.png'),
+    url('../../assets/images/login-teacher.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, top right;
+  background-size: contain contain;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .homepage__form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .homepage {
+    background-image: url('../../assets/images/login-student.png'),
+      url('../../assets/images/login-teacher-big.png');
+     
+  }
+}
+@media screen and (min-width: 1024px) {
+  .homepage {
+    background-image: url('../../assets/images/login-student-big.png'),
+      url('../../assets/images/login-teacher-big.png');
+     
+  }
+}

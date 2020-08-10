@@ -1,0 +1,28 @@
+.avatar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding:2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    margin-bottom: 5px;
+    font-size: 0.85em;
+    position: relative;
+    top: 2px;
+  }
+  .avatar__name {
+    color: #70c0fd;
+  }
+}
+img {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.avatar__details {
+  display: flex;
+  flex-direction: column;
+}
