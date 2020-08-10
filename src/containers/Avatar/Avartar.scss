@@ -1,8 +1,4 @@
 .avatar {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding:2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,4 +21,19 @@ img {
 .avatar__details {
   display: flex;
   flex-direction: column;
+}
+.avatar--mobile {
+  position: relative;
+  top: -25px;
+  width: 190px;
+  justify-content: flex-start;
+  img {
+    margin-right: 15px;
+  }
+}
+ .avatar--desktop {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  padding: 2rem;
 }

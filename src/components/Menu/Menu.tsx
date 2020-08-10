@@ -15,6 +15,7 @@ import { StoreContext } from '../../store/Store';
 
 // actions
 import { logoutAction } from '../../store/Actions';
+import Avatar from '../../containers/Avatar/Avatar';
 
 const Menu = (props: any): JSX.Element => {
   const { history, setIsOpen, isOpen } = props;
@@ -29,6 +30,7 @@ const Menu = (props: any): JSX.Element => {
   return (
     <nav className={`${isOpen ? 'menu__show' : 'menu__hide'}`}>
       <div className="nav__items">
+        <Avatar mobile={true} />
         <Link
           to="/compare"
           className="nav__item"

@@ -9,15 +9,17 @@ import Profile from '../../assets/images/avatar.png';
 // context
 import { StoreContext } from '../../store/Store';
 
-const Avatar = () => {
+const Avatar = (props: any) => {
   const {
-    state: {
-      currentUser,
-    },
+    state: { currentUser },
   } = useContext(StoreContext);
 
   return (
-    <div className="avatar">
+    <div
+      className={` avatar ${
+        props.mobile ? 'avatar--mobile' : 'avatar--desktop'
+      }`}
+    >
       <img alt="avatar" src={Profile} />
       <div className="avatar__details">
         <span className="avatar__name">{currentUser.username}</span>
